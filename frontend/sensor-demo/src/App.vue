@@ -16,25 +16,26 @@ export default {
   methods:{
     async getAllSensors(){
       // console.log('clicked')
-      const res = await axios.get("https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors")
+      const res = await axios.get("/api/sensors")
+      // const res = await axios.get("https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors")
       // console.log(res)
       this.sensors = res.data 
       // console.log(this.sensors)
     },
     async deleteSensor(id){
-      const deletedres = await axios.delete(`https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors/${id}`)
+      const deletedres = await axios.delete(`/api/sensors/${id}`)
       // console.log(deletedres)
-      const getres = await axios.get("https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors")
+      const getres = await axios.get("/api/sensors")
       // console.log(res)
       this.sensors = getres.data       
     },
     async addOneSensor(id){
-      const deletedres = await axios.post(`https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors`,
+      const deletedres = await axios.post(`/api/sensors`,
       {
         name: "Sensor New"
       })
       // console.log(deletedres)
-      const getres = await axios.get("https://carecoding-cautious-doodle-g9x7qgrpq59cw954-8000.preview.app.github.dev/api/sensors")
+      const getres = await axios.get("/api/sensors")
       // console.log(res)
       this.sensors = getres.data       
     }

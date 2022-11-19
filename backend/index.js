@@ -1,10 +1,18 @@
 const express = require('express')
+// const cors = require('cors')
+
 const app = express()
 app.listen(8000, ()=>{
     console.log('Listening on port 8000...')
 })
 
-//以下设置用于跨域，否则无法访问
+//发现不用cors,用下面的另一段代码设置即可。以下设置用于跨域，否则无法访问
+// app.use(cors({
+//     credentials: true,
+//     origin: ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:4200']
+// }))
+
+//***以下设置用于跨域，否则无法访问***/
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With')
